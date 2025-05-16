@@ -1,6 +1,12 @@
+import { habits } from '../mock/habits.js';
+
 export class HabitModel {
-    constructor() {
-      this.habits = JSON.parse(localStorage.getItem('habits')) || [];
+    constructor(data = false) {
+        if (data) {
+          this.habits = habits;
+        } else {
+          this.habits = JSON.parse(localStorage.getItem('habits')) || [];
+        }
     }
   
     addHabit(name, description, status) {
